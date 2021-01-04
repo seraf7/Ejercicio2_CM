@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Ejercicio2</string>
+    <string name="tcPostre">Postre</string>
+    <string name="tcCarne">Carnes y Aves</string>
+    <string name="tcEnsalada">Ensalada</string>
+    <string name="tcPescado">Pescados y Mariscos</string>
+    <string name="tcBebida">Bebidas</string>
+    <string name="lblReceta">Receta</string>
+    <string name="lblTiempo">Tiempo de preparación</string>
+    <string name="lblTipo">Tipo de comida</string>
+    <string name="lblPorciones">Porciones</string>
+    <string name="lblDificultad">Dificultad</string>
+    <string name="lblBaja">Baja</string>
+    <string name="lblMedia">Media</string>
+    <string name="lblAlta">Alta</string>
 </resources>

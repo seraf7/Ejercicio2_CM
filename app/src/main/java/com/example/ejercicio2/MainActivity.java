@@ -5,22 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.example.ejercicio2.dialog.TimePickerFragment;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
-    EditText etTiempo;
+    TextInputEditText etTiempo;
+    TextInputLayout tiTiempo;
+
+    Spinner spTipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Asociacion de campos de texto
+        //Asociacion de elementos de la vista
         etTiempo = findViewById(R.id.etTiempo);
+        tiTiempo = findViewById(R.id.tiTiempo);
+        spTipo = findViewById(R.id.spTipo);
 
         //Asociar un metodo Listener a etFecha
         etTiempo.setOnClickListener(this);
@@ -53,5 +61,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 showTimePickerDialog();
                 break;
         }
+    }
+
+    //Metodo para obtener elemento seleccionado en el Spinner
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

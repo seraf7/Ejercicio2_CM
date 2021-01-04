@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tiposComida">
+        <item>@string/tcBebida</item>
+        <item>@string/tcCarne</item>
+        <item>@string/tcEnsalada</item>
+        <item>@string/tcPescado</item>
+        <item>@string/tcPostre</item>
+    </string-array>
+</resources>
