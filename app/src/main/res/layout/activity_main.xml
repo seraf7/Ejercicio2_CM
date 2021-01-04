@@ -7,31 +7,77 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiTiempo"
-        android:layout_width="268dp"
+        android:id="@+id/tiReceta"
+        android:layout_width="@dimen/anchoET"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="false"
+        android:hint="@string/lblReceta"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20"
+        app:startIconDrawable="@drawable/ic_baseline_restaurant_menu_24"
+        app:startIconTint="@color/secondaryDarkColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etReceta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="30"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiTiempo"
+        android:layout_width="@dimen/anchoET"
+        android:layout_height="wrap_content"
         android:hint="@string/lblTiempo"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
         app:startIconDrawable="@drawable/ic_baseline_access_time_24"
         app:startIconTint="@color/secondaryDarkColor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etTiempo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="false" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tiPorcion"
+        android:layout_width="@dimen/anchoET"
+        android:layout_height="wrap_content"
+        android:hint="@string/lblPorciones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.50"
+        app:startIconDrawable="@drawable/ic_baseline_groups_24"
+        app:startIconTint="@color/secondaryDarkColor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPorcion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="2" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Spinner
         android:id="@+id/spTipo"
         style="@android:style/Widget.Material.Spinner.Underlined"
-        android:layout_width="354dp"
+        android:layout_width="@dimen/anchoET"
         android:layout_height="wrap_content"
         android:entries="@array/tiposComida"
         android:spinnerMode="dialog"
@@ -39,6 +85,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.65" />
+
+    <RadioGroup
+        android:id="@+id/rgDificultad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.80">
+
+        <RadioButton
+            android:id="@+id/rbBaja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/facil"
+            android:gravity="center|clip_vertical"
+            android:paddingEnd="@dimen/pdRdBtn"
+            android:text="@string/lblBaja" />
+
+        <RadioButton
+            android:id="@+id/rbMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/medio"
+            android:paddingEnd="@dimen/pdRdBtn"
+            android:text="@string/lblMedia" />
+
+        <RadioButton
+            android:id="@+id/rbAlta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/dificil"
+            android:paddingEnd="@dimen/pdRdBtn"
+            android:text="@string/lblAlta" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
