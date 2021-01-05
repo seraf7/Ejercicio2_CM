@@ -13,4 +13,10 @@
     <string name="lblBaja">Baja</string>
     <string name="lblMedia">Media</string>
     <string name="lblAlta">Alta</string>
+    <string name="dfTiempo">00:00</string>
+    <string name="errReceta">Ingresa el nombre de la receta</string>
+    <string name="errTiempo">Ingresa un tiempo válido</string>
+    <string name="errPorcion">Ingresa cantidad de porciones</string>
+    <string name="errDificultad">Selecciona una dificultad</string>
+    <string name="error">Llena todos los campos</string>
 </resources>

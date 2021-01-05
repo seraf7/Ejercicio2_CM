@@ -11,19 +11,19 @@
         android:layout_width="@dimen/anchoET"
         android:layout_height="wrap_content"
         android:hint="@string/lblReceta"
-        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.20"
+        app:layout_constraintVertical_bias="0.15"
         app:startIconDrawable="@drawable/ic_baseline_restaurant_menu_24"
-        app:startIconTint="@color/secondaryDarkColor">
+        app:startIconTint="@color/primaryColor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etReceta"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="text"
             android:maxLength="30"
             android:singleLine="true" />
 
@@ -34,21 +34,21 @@
         android:layout_width="@dimen/anchoET"
         android:layout_height="wrap_content"
         android:hint="@string/lblTiempo"
-        android:inputType="time"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintVertical_bias="0.30"
         app:startIconDrawable="@drawable/ic_baseline_access_time_24"
-        app:startIconTint="@color/secondaryDarkColor">
+        app:startIconTint="@color/primaryColor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etTiempo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clickable="true"
-            android:focusable="false" />
+            android:focusable="false"
+            android:inputType="time" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,12 +58,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/lblPorciones"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.50"
+        app:layout_constraintVertical_bias="0.45"
         app:startIconDrawable="@drawable/ic_baseline_groups_24"
-        app:startIconTint="@color/secondaryDarkColor">
+        app:startIconTint="@color/primaryColor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etPorcion"
@@ -82,47 +82,100 @@
         android:entries="@array/tiposComida"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.58" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="@dimen/anchoET"
+        android:layout_height="wrap_content"
+        android:text="@string/lblDificultad"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.68" />
 
     <RadioGroup
         android:id="@+id/rgDificultad"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/anchoET"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="fill"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.80">
+        app:layout_constraintVertical_bias="0.75">
 
         <RadioButton
             android:id="@+id/rbBaja"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/facil"
+            android:drawableStart="@drawable/ic_facil"
             android:gravity="center|clip_vertical"
-            android:paddingEnd="@dimen/pdRdBtn"
             android:text="@string/lblBaja" />
 
         <RadioButton
             android:id="@+id/rbMedia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/medio"
-            android:paddingEnd="@dimen/pdRdBtn"
+            android:layout_marginStart="@dimen/mgRdBtn"
+            android:layout_marginEnd="@dimen/mgRdBtn"
+            android:drawableLeft="@drawable/ic_medio"
             android:text="@string/lblMedia" />
 
         <RadioButton
             android:id="@+id/rbAlta"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/dificil"
-            android:paddingEnd="@dimen/pdRdBtn"
+            android:drawableLeft="@drawable/ic_dificil"
             android:text="@string/lblAlta" />
     </RadioGroup>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAgregar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.951" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnRecetario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:src="@drawable/ic_baseline_menu_book_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="25dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="25dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
