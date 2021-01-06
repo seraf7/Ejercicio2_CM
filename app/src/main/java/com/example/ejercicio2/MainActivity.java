@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Asociar un metodo Listener a etFecha
         etTiempo.setOnClickListener(this);
+        //Asociar un metodo Listener a Spinner de tipos
+        spTipo.setOnItemSelectedListener(this);
     }
 
     //Metodo para capturar el tiempo y mostrar TimePicker
@@ -180,7 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tiTiempo.setError(null);
         }
         //Revision del campo Porcion
-        if(etPorcion.getText().toString().equals("")){
+        if(etPorcion.getText().toString().equals("") || Integer.parseInt(etPorcion.getText().toString()) == 0){
             tiPorcion.setError(getResources().getString(R.string.errPorcion));
             return false;
         }else{
