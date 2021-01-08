@@ -59,7 +59,7 @@ public class Adaptador extends BaseAdapter {
         TextView tvDificultad = vista.findViewById(R.id.tvDificultad);
 
         //Modificar elementos de la vista
-        tvReceta.setText(datos.get(position).getNombre()+String.valueOf(datos.get(position).getId()));
+        tvReceta.setText(datos.get(position).getNombre());
         tvTiempo.setText(datos.get(position).getTiempo());
         tvPorcion.setText(String.valueOf(datos.get(position).getPorcion()));
 

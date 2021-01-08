@@ -2,7 +2,7 @@ package com.example.ejercicio2.model;
 
 import java.io.Serializable;
 
-public class Receta implements Serializable {
+public class Receta implements Serializable, Comparable<Receta>{
 
     private static long indice = 0L;
 
@@ -26,6 +26,10 @@ public class Receta implements Serializable {
 
     public static long getIndice() {
         return indice;
+    }
+
+    public static void setIndice(long i){
+        indice = i;
     }
 
     public long getId() {
@@ -74,5 +78,15 @@ public class Receta implements Serializable {
 
     public void setDificultad(int dificultad) {
         this.dificultad = dificultad;
+    }
+
+    //Metodo para realizar el ordenamiento de dos recetas según su nombre
+    @Override
+    public int compareTo(Receta o) {
+        //Compara el nombre de dos recetas para ordenarlas alfabeticamente
+        //-1 si la receta o va despues
+        //0 si la receta 0 tiene el mismo nombre
+        //1 si la receta o va antes
+        return this.getNombre().compareTo(o.getNombre());
     }
 }

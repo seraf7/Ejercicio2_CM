@@ -19,4 +19,6 @@
     <string name="errPorcion">Ingresa cantidad de porciones</string>
     <string name="errDificultad">Selecciona una dificultad</string>
     <string name="error">Llena todos los campos</string>
+    <string name="msjID">Seleccionaste la receta con ID \</string>
+    <string name="msjAgregado">Receta registrada. Total de recetas: \</string>
 </resources>

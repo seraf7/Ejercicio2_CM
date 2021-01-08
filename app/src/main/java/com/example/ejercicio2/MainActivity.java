@@ -3,8 +3,11 @@ package com.example.ejercicio2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.RadioGroup;
@@ -17,7 +20,9 @@ import com.example.ejercicio2.model.Receta;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.security.interfaces.RSAKey;
+
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
@@ -47,8 +52,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Recupera recetas del usuario
+        recuperarRecetas();
+
         //Instancia del Array de Recetas
-        recetas = new ArrayList<>();
+        //recetas = new ArrayList<>();
 
         //Asociacion de elementos de la vista
         etReceta = findViewById(R.id.etReceta);
@@ -133,9 +141,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //Crea un nuevo Objeto Receta y agregar al array
         tmpReceta = new Receta(tmpNombre, tmpTiempo, tmpPorcion, tmpTipo, tmpDificultad);
         recetas.add(tmpReceta);
-        Toast.makeText(this, String.valueOf(Receta.getIndice()), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.msjAgregado) + String.valueOf(Receta.getIndice()), Toast.LENGTH_SHORT).show();
 
         limpiarFormulario();
+        //Guardar datos de recetario
+        guardaRecetas();
     }
 
     //Metodo para ir al recetario
@@ -203,5 +213,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         etPorcion.setText("");
         rgDificultad.clearCheck();
         spTipo.setSelection(0);
+    }
+
+    //Metodo para guardar receta con persistencia
+    public void guardaRecetas(){
+        try{
+            //Crea un flujo de salida dirigido a un fichero almacenado internamente
+            ObjectOutputStream fichero = new ObjectOutputStream(openFileOutput("recetario.dat", Context.MODE_PRIVATE));
+            //Escibre el ArrayList en el fichero
+            fichero.writeObject(recetas);
+            //Cierra el flujo de salida
+            fichero.close();
+        } catch (Exception e){
+            Log.e("NoCreado", "Fichero no creado" + e.toString());
+        }
+    }
+
+    //Metodo para recuperar recetas
+    public void recuperarRecetas(){
+        try{
+            //Crea un flujo de entrada de un fichero interno
+            ObjectInputStream fichero = new ObjectInputStream(openFileInput("recetario.dat"));
+            //Asigna el objeto recuperado al ArrayList
+            recetas = (ArrayList<Receta>) fichero.readObject();
+            //Cierra el flujo de entrada
+            fichero.close();
+            //Establece el indice de la clase receta
+            Receta.setIndice((long) recetas.size());
+        }
+        catch (Exception e){    //No se encontró el archivo
+            //Asigna un objeto nuevo al ArrayList
+            recetas = new ArrayList<>();
+            Log.e("NoEncontrado", "Fichero no encontrado" + e.toString());
+        }
     }
 }
