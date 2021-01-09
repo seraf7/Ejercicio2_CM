@@ -31,14 +31,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="130dp" />
+        app:layout_constraintGuide_begin="135dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="60dp" />
+        app:layout_constraintGuide_begin="65dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -59,21 +59,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="245dp" />
+        app:layout_constraintGuide_begin="250dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="140dp" />
+        app:layout_constraintGuide_begin="145dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="95dp" />
+        app:layout_constraintGuide_begin="100dp" />
 
     <ImageView
         android:id="@+id/ivTipo"
@@ -89,8 +89,11 @@
         android:id="@+id/tvReceta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="18sp"
+        android:fontFamily="@font/angelina"
+        android:letterSpacing="0.05"
+        android:lineSpacingMultiplier="0.8"
+        android:text="@string/lblReceta"
+        android:textSize="@dimen/tamTitulo"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -123,8 +126,10 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/angelina"
         android:text="@string/lblDificultad"
         android:textAlignment="center"
+        android:textSize="@dimen/tamContenido"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
@@ -132,9 +137,12 @@
 
     <TextView
         android:id="@+id/tvTiempo"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/anchoTV"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:fontFamily="@font/angelina"
+        android:text="@string/dfTiempo"
+        android:textAlignment="center"
+        android:textSize="@dimen/tamContenido"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -143,9 +151,12 @@
 
     <TextView
         android:id="@+id/tvPorcion"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/anchoTV"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:fontFamily="@font/angelina"
+        android:text="@string/dfTiempo"
+        android:textAlignment="center"
+        android:textSize="@dimen/tamContenido"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
@@ -168,7 +179,9 @@
         android:id="@+id/tvDificultad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:fontFamily="@font/angelina"
+        android:text="@string/lblBaja"
+        android:textSize="@dimen/tamContenido"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"

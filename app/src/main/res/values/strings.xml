@@ -21,4 +21,6 @@
     <string name="error">Llena todos los campos</string>
     <string name="msjID">Seleccionaste la receta con ID \</string>
     <string name="msjAgregado">Receta registrada. Total de recetas: \</string>
+    <string name="lblRecetario">Mis Recetas</string>
+    <string name="lblRegistro">Añadir</string>
 </resources>
