@@ -19,8 +19,11 @@
     <string name="errPorcion">Ingresa cantidad de porciones</string>
     <string name="errDificultad">Selecciona una dificultad</string>
     <string name="error">Llena todos los campos</string>
-    <string name="msjID">Seleccionaste la receta con ID \</string>
+    <string name="msjID">Seleccionaste la receta con ID: \</string>
     <string name="msjAgregado">Receta registrada. Total de recetas: \</string>
     <string name="lblRecetario">Mis Recetas</string>
-    <string name="lblRegistro">Añadir</string>
+    <string name="lblRegistro">Registrar</string>
+    <string name="lblAutor">Humberto Serafín Castillo López</string>
+    <string name="archivoDatos">recetario.dat</string>
+    <string name="formatoTiempo">%02d:%02d</string>
 </resources>

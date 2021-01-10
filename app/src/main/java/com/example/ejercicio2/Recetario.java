@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ejercicio2.model.Receta;
 
 import java.util.ArrayList;
@@ -51,5 +52,12 @@ public class Recetario extends AppCompatActivity implements AdapterView.OnItemCl
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         //Mostrar Toast con el ID del elemento presionado
         Toast.makeText(this, getResources().getString(R.string.msjID) + id, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //Reproduce animacion al presionar boton atras
+        Animatoo.animateSwipeLeft(this);
     }
 }

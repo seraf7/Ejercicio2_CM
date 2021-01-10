@@ -6,6 +6,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.ejercicio2.dialog.TimePickerFragment;
 import com.example.ejercicio2.model.Receta;
 import com.google.android.material.textfield.TextInputEditText;
@@ -26,6 +28,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+
+    MediaPlayer registro;
 
     TextInputLayout tiReceta;
     TextInputLayout tiTiempo;
@@ -40,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     ArrayList<Receta> recetas;
     Receta tmpReceta;
-
+    String archivo;
     String tmpNombre;
     String tmpTiempo;
     int tmpPorcion;
@@ -51,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Inicializacion de nombre de archivo
+        archivo = getResources().getString(R.string.archivoDatos);
+
+        //Objeto de audio
+        registro = MediaPlayer.create(this, R.raw.yummy);
 
         //Recupera recetas del usuario
         recuperarRecetas();
@@ -81,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                 //Formateo de la cadena de tiempo
-                String t = "%02d:%02d";
+                String t = getResources().getString(R.string.formatoTiempo);
                 //Recupera tiempo seleccionado
                 final String tiempoFormateado = String.format(t, hourOfDay, minute);
                 //Coloca tiempo en el EditText
@@ -102,11 +112,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAgregar:   //Boton para agregar receta
                 agregarReceta();
-                //Toast.makeText(this, "Agregar", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.btnRecetario: //Boton para mostrar recetas
                 verRecetario();
-                //Toast.makeText(this, "Recetas", Toast.LENGTH_SHORT).show();
                 break;
             default:
                 break;
@@ -132,6 +140,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
             return;
         }
+
+        //Reproduccion de sonido
+        registro.start();
 
         //Obtencion de valores del formulario
         tmpNombre = etReceta.getText().toString();
@@ -162,6 +173,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //Iniciar Activity de recetario
         startActivity(intent);
+        //Realizar animacion
+        Animatoo.animateSwipeRight(this);
     }
 
     //Metodo para comprobar Dificultad seleccionada
@@ -219,13 +232,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void guardaRecetas(){
         try{
             //Crea un flujo de salida dirigido a un fichero almacenado internamente
-            ObjectOutputStream fichero = new ObjectOutputStream(openFileOutput("recetario.dat", Context.MODE_PRIVATE));
+            ObjectOutputStream fichero = new ObjectOutputStream(openFileOutput(archivo, Context.MODE_PRIVATE));
             //Escibre el ArrayList en el fichero
             fichero.writeObject(recetas);
             //Cierra el flujo de salida
-            fichero.close();
+            //fichero.close();
         } catch (Exception e){
-            Log.e("NoCreado", "Fichero no creado" + e.toString());
+
         }
     }
 
@@ -233,7 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void recuperarRecetas(){
         try{
             //Crea un flujo de entrada de un fichero interno
-            ObjectInputStream fichero = new ObjectInputStream(openFileInput("recetario.dat"));
+            ObjectInputStream fichero = new ObjectInputStream(openFileInput(archivo));
             //Asigna el objeto recuperado al ArrayList
             recetas = (ArrayList<Receta>) fichero.readObject();
             //Cierra el flujo de entrada
@@ -241,10 +254,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //Establece el indice de la clase receta
             Receta.setIndice((long) recetas.size());
         }
-        catch (Exception e){    //No se encontró el archivo
+        catch (Exception e){    //No se encontró el archivo de datos
             //Asigna un objeto nuevo al ArrayList
             recetas = new ArrayList<>();
-            Log.e("NoEncontrado", "Fichero no encontrado" + e.toString());
         }
     }
 }

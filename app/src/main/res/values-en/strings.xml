@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ejercicio2</string>
+    <string name="tcPostre">Dessert</string>
+    <string name="tcCarne">Meats and Chickens</string>
+    <string name="tcEnsalada">Salad</string>
+    <string name="tcPescado">Fish and Seafood</string>
+    <string name="tcBebida">Drinks</string>
+    <string name="lblReceta">Recipe</string>
+    <string name="lblTiempo">Cook time</string>
+    <string name="lblTipo">Kind of food</string>
+    <string name="lblPorciones">Servings</string>
+    <string name="lblDificultad">Difficulty level</string>
+    <string name="lblBaja">Easy</string>
+    <string name="lblAlta">Hard</string>
+    <string name="lblMedia">Medium</string>
+    <string name="dfTiempo">00:00</string>
+    <string name="errReceta">Enter the name of the recipe</string>
+    <string name="errTiempo">Enter a valid time</string>
+    <string name="errPorcion">Enter the number of servings</string>
+    <string name="errDificultad">Select a difficulty level</string>
+    <string name="error">Fill all fields</string>
+    <string name="msjID">"You selected the recipe with ID: "</string>
+    <string name="msjAgregado">"Recipe registered. Total recipes: "</string>
+    <string name="lblRecetario">My Recipes</string>
+    <string name="lblRegistro">Record</string>
+    <string name="lblAutor">Humberto Serafín Castillo López</string>
+    <string name="archivoDatos">recetario.dat</string>
+    <string name="formatoTiempo">%02d:%02d</string>
+</resources>
